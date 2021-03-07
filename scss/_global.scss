@@ -1,0 +1,27 @@
+@import url("https://fonts.googleapis.com/css2?family=Commissioner:wght@400;500;700&display=swap");
+
+:root {
+  // ### ### ### Primary ### ### ###
+  --Moderatecyan: hsl(176, 50%, 47%);
+  --Darkcyan: hsl(176, 72%, 28%);
+
+  // ### ### ### Neutral ### ### ###
+  --Black: hsl(0, 0%, 0%);
+  --Darkgray: hsl(0, 0%, 48%);
+}
+
+body {
+  font-family: "Commissioner", sans-serif;
+}
+
+.wrapper {
+  width: 100%;
+  max-width: 327px;
+  margin: 0 auto;
+  @media screen and (min-width: 992px) {
+    max-width: 920px;
+  }
+  @media screen and (min-width: 1200px) {
+    max-width: 1110px;
+  }
+}
