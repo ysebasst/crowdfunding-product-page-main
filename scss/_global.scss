@@ -1,5 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Commissioner:wght@400;500;700&display=swap");
 
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
 :root {
   // ### ### ### Primary ### ### ###
   --Moderatecyan: hsl(176, 50%, 47%);
@@ -11,13 +17,15 @@
 }
 
 body {
+  background-color: #fafafa;
   font-family: "Commissioner", sans-serif;
 }
 
 .wrapper {
   width: 100%;
   max-width: 327px;
-  margin: 0 auto;
+  margin-left: auto;
+  margin-right: auto;
   @media screen and (min-width: 992px) {
     max-width: 920px;
   }
