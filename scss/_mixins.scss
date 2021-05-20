@@ -1,18 +1,25 @@
-@mixin wrapper() {
-  width: 100%;
-  max-width: 327px;
-  margin-left: auto;
-  margin-right: auto;
-  @media screen and (min-width: 768px) {
-    max-width: 720px;
-  }
-  @media screen and (min-width: 1200px) {
-    max-width: 1110px;
-  }
-}
-
 @mixin from($size) {
   @media screen and (min-width: $size) {
     @content;
+  }
+}
+@mixin to($size) {
+  @media screen and (max-width: $size - 1px) {
+    @content;
+  }
+}
+
+@mixin wrapper($size: 730px) {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  @include to(375px) {
+    max-width: calc(100% - 3rem);
+  }
+  @include from(375px) {
+    max-width: 327px;
+  }
+  @include from($tablet) {
+    max-width: $size;
   }
 }

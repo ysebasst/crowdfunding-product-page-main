@@ -1,7 +1,89 @@
 .about {
   @include wrapper;
-  padding: 1.5rem;
+  padding: 2.5rem 1.5rem;
   margin-top: 1.5rem;
   border-radius: 0.5rem;
   box-shadow: $box-shadow;
+  &__title {
+    padding-bottom: 0.5rem;
+    font-size: 1.125rem;
+  }
+  &__text {
+    font-size: 0.875rem;
+    line-height: 1.75;
+    color: var(--Darkgray);
+  }
+  @include from($tablet) {
+    padding: 3rem;
+    &__text {
+      font-size: 1rem;
+    }
+  }
+}
+
+.about-item {
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  box-shadow: $box-shadow;
+  &:not(:last-of-type) {
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+  &__title {
+    margin-top: 0.25rem;
+    margin-bottom: 0.25rem;
+    font-size: 1rem;
+  }
+  &__pledge {
+    color: var(--ModerateCyan);
+  }
+  &__left {
+    display: flex;
+    align-items: center;
+    font-size: 2rem;
+    font-weight: bold;
+    span {
+      margin-left: 0.5rem;
+      font-size: 0.875rem;
+      font-weight: normal;
+      line-height: 1.75;
+      color: var(--Darkgray);
+    }
+  }
+  &__button {
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 2rem;
+    font-weight: bold;
+    color: #fff;
+    background-color: var(--ModerateCyan);
+    cursor: pointer;
+    outline: none;
+    user-select: none;
+    @include from($tablet) {
+      transition: background-color 0.3s;
+      &:hover {
+        background-color: var(--DarkCyan);
+      }
+    }
+  }
+  &--deactivate {
+    opacity: 0.5;
+    .about-item__button {
+      background-color: var(--Darkgray);
+    }
+  }
+  @include from($tablet) {
+    padding: 2rem;
+    &__info {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    &__footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
 }

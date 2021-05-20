@@ -4,4 +4,73 @@
   margin-top: 1.5rem;
   border-radius: 0.5rem;
   box-shadow: $box-shadow;
+  &__items {
+    display: flex;
+    flex-direction: column;
+  }
+  &__item {
+    position: relative;
+    padding: 1rem;
+    text-align: center;
+    &:not(:last-of-type) {
+      &::before {
+        content: "";
+        position: absolute;
+        left: 50%;
+        top: 100%;
+        width: 80px;
+        height: 1px;
+        transform: translateX(-50%);
+        background-color: rgba(0, 0, 0, 0.25);
+      }
+    }
+  }
+  &__title {
+    margin-top: 0.25rem;
+    margin-bottom: 0.25rem;
+    font-size: 2rem;
+    font-weight: bold;
+  }
+  &__text {
+    font-size: 0.875rem;
+    color: var(--Darkgray);
+  }
+  @include from($tablet) {
+    &__items {
+      flex-direction: row;
+    }
+    &__item {
+      flex-basis: calc(100% / 3);
+      text-align: left;
+      &:not(:last-of-type) {
+        &::before {
+          left: 100%;
+          top: 50%;
+          height: 50%;
+          width: 1px;
+          transform: translateY(-50%);
+        }
+      }
+      &:not(:first-of-type) {
+        margin-left: 2rem;
+      }
+    }
+  }
+}
+.progress-bar {
+  position: relative;
+  height: 12px;
+  overflow: hidden;
+  border-radius: 6px;
+  background-color: rgba(0, 0, 0, 0.125);
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 75%;
+    height: 100%;
+    border-radius: 6px;
+    background-color: var(--ModerateCyan);
+  }
 }

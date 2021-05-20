@@ -8,8 +8,8 @@
 
 :root {
   // ### ### ### Primary ### ### ###
-  --Moderatecyan: hsl(176, 50%, 47%);
-  --Darkcyan: hsl(176, 72%, 28%);
+  --ModerateCyan: hsl(176, 50%, 47%);
+  --DarkCyan: hsl(176, 72%, 28%);
 
   // ### ### ### Neutral ### ### ###
   --Black: hsl(0, 0%, 0%);
@@ -19,6 +19,18 @@
 body {
   background-color: #fafafa;
   font-family: "Commissioner", sans-serif;
+  &.modal-active {
+    overflow: hidden;
+    @include to($tablet) {
+      &--nav {
+        overflow: hidden;
+      }
+    }
+  }
+}
+
+.main {
+  margin-bottom: 1.5rem;
 }
 
 .wrapper {

@@ -1,4 +1,4 @@
-.main {
+.hero {
   @include wrapper;
   position: relative;
   text-align: center;
@@ -11,6 +11,7 @@
     // transform: translateY(-50%);
     margin-top: -28px;
     margin-bottom: 0.25rem;
+    user-select: none;
   }
   &__title {
     font-size: 1.5rem;
@@ -32,9 +33,12 @@
     padding: 0;
     border: none;
     border-radius: 2rem;
+    font-weight: bold;
+    cursor: pointer;
     outline: none;
+    user-select: none;
     &--back {
-      background-color: var(--Moderatecyan);
+      background-color: var(--ModerateCyan);
       padding: 1rem 1.5rem;
     }
     & span {
@@ -42,9 +46,23 @@
     }
   }
   @include from($tablet) {
+    padding-left: 3rem;
+    padding-right: 3rem;
+    padding-bottom: 3rem;
+    margin-top: -6rem;
     &__button {
+      transition: background-color 0.3s, opacity 0.3s;
+      &--back {
+        &:hover {
+          background-color: var(--DarkCyan);
+        }
+      }
       &--bookmark {
         background-color: var(--Darkgray);
+        &:hover {
+          color: #000;
+          opacity: 0.5;
+        }
       }
       & span {
         display: inline-block;

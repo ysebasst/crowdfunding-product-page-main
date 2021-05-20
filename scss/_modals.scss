@@ -1,0 +1,257 @@
+.modal-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: none;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  &__container {
+    height: min-content;
+  }
+  @include to($tablet) {
+    &--nav-active {
+      display: block;
+    }
+  }
+  &--active {
+    display: block;
+    padding: 7.5rem 1.5rem;
+    overflow-y: auto;
+    @include from($tablet) {
+      padding: 11.5rem 1.5rem;
+    }
+  }
+}
+
+/**
+ * MODAL BACK THIS PROJECT
+ * MODAL COMPLETED
+ */
+.modal-back-this-project,
+.modal-completed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: auto;
+  transform: translateX(100%);
+  &__container {
+    margin-top: 7.5rem;
+    margin-bottom: 7.5rem;
+    padding: 2rem 1.5rem;
+    background-color: #fff;
+    border-radius: 0.5rem;
+    @include from($tablet) {
+      margin-top: 11.5rem;
+      margin-bottom: 11.5rem;
+      padding: 3rem;
+    }
+  }
+  &--active {
+    transition: transform 0.3s;
+    transform: translateX(0);
+  }
+}
+// MODAL BACK THIS PROJECT ### --------------------------------
+.modal-back-this-project {
+  &__container {
+    @include wrapper;
+  }
+  &__title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+  }
+  &__icon-close {
+    display: flex;
+    padding: 0.25rem;
+    cursor: pointer;
+    outline: none;
+    img {
+      vertical-align: top;
+      user-select: none;
+    }
+  }
+  &__text {
+    font-size: 0.875rem;
+    line-height: 1.75;
+    color: var(--Darkgray);
+  }
+}
+.modal-back-this-project-item {
+  position: relative;
+  border: 1px solid rgba(0, 0, 0, 0.25);
+  border-radius: 0.5rem;
+  background-color: #fff;
+  &:not(:last-of-type) {
+    margin-bottom: 1.5rem;
+  }
+  &__header {
+    display: flex;
+    align-items: center;
+    padding: 1.5rem 1.5rem 0;
+  }
+  &__checkbox {
+    position: relative;
+    width: 24px;
+    height: 24px;
+    margin-right: 1rem;
+    border: 1px solid rgba(0, 0, 0, 0.25);
+    border-radius: 50%;
+  }
+  &__info {
+    flex-grow: 1;
+    & span {
+      font-size: 0.875rem;
+      color: var(--ModerateCyan);
+    }
+  }
+  &__title {
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    font-size: 0.875rem;
+  }
+  &__text {
+    margin-bottom: 0.5rem;
+    font-size: 0.875rem;
+    line-height: 1.75;
+    color: var(--Darkgray);
+  }
+  &__left {
+    margin-bottom: 0.5rem;
+    color: var(--Darkgray);
+    span {
+      margin-right: 0.25rem;
+      font-weight: bold;
+      color: #000;
+    }
+    @include from($tablet) {
+      position: absolute;
+      top: 1.5rem;
+      right: 1.5rem;
+    }
+  }
+  &__body {
+    padding: 0 1.5rem 1rem;
+  }
+  &__pledge {
+    max-height: 0;
+    padding: 0 1.5rem;
+    overflow: hidden;
+    transition: max-height 0.3s;
+    @include from($tablet) {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+  &__label {
+    display: block;
+    color: var(--Darkgray);
+    @include to($tablet) {
+      margin-bottom: 1.25rem;
+      text-align: center;
+    }
+  }
+  &__form {
+    display: flex;
+    align-items: center;
+  }
+  &__field {
+    display: flex;
+    align-items: center;
+    width: 100px;
+    margin-right: 1rem;
+    border: 1px solid rgba(0, 0, 0, 0.25);
+    border-radius: 2rem;
+    overflow: hidden;
+    span {
+      margin-left: 1.5rem;
+      color: var(--Darkgray);
+    }
+  }
+  &__input {
+    padding: 1rem 0.5rem;
+    border: none;
+    font-weight: bold;
+    outline: none;
+  }
+  &__button {
+    padding: 1rem 1.5rem;
+    border: none;
+    border-radius: 2rem;
+    font-weight: bold;
+    color: #fff;
+    background-color: var(--ModerateCyan);
+    cursor: pointer;
+    outline: none;
+    user-select: none;
+    transition: background-color 0.3s;
+    &:hover {
+      background-color: var(--DarkCyan);
+    }
+  }
+  &--active {
+    border: 1px solid var(--ModerateCyan);
+    .modal-back-this-project-item__checkbox::before {
+      content: "";
+      position: absolute;
+      left: 5px;
+      top: 5px;
+      width: 0.75rem;
+      height: 0.75rem;
+      border-radius: 50%;
+      background-color: var(--ModerateCyan);
+    }
+    .modal-back-this-project-item__pledge {
+      max-height: unset;
+      padding: 1.5rem;
+      border-top: 1px solid rgba(0, 0, 0, 0.25);
+    }
+  }
+  &--deactivate {
+    opacity: 0.5;
+  }
+}
+
+// MODAL COMPLETED ### --------------------------------
+.modal-completed {
+  text-align: center;
+  &__container {
+    @include wrapper(540px);
+  }
+  &__title {
+    font-size: 1.25rem;
+    @include from($tablet) {
+      font-size: 1.5rem;
+    }
+  }
+  &__text {
+    margin-bottom: 2rem;
+    font-size: 0.875rem;
+    line-height: 1.75;
+    color: var(--Darkgray);
+    @include from($tablet) {
+      font-size: 1rem;
+    }
+  }
+  &__button {
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 2rem;
+    font-weight: bold;
+    color: #fff;
+    background-color: var(--ModerateCyan);
+    cursor: pointer;
+    outline: none;
+    user-select: none;
+    transition: background-color 0.3s;
+    &:hover {
+      background-color: var(--DarkCyan);
+    }
+  }
+}
